@@ -9,7 +9,7 @@ int global_var5 = 5;
 
 int stack(int x) {
   printf("Address of x (local_variable) %d: is at %p\n", x, (void*)&x);
-  if (x == 0) return 0;
+  if (x == 1) return 0;
   return stack(x - 1);
 }
 
@@ -29,20 +29,20 @@ int main() {
     int* heap4 = (int*)malloc(sizeof(int));
     int* heap5 = (int*)malloc(sizeof(int));
 
-    printf("Address of heap1 (malloc): %p\n", (void*)heap_var1);
-    printf("Address of heap2 (malloc): %p\n", (void*)heap_var2);
-    printf("Address of heap3 (malloc): %p\n", (void*)heap_var3);
-    printf("Address of heap4 (malloc): %p\n", (void*)heap_var4);
-    printf("Address of heap5 (malloc): %p\n", (void*)heap_var5);
+    printf("Address of heap1 (malloc): %p\n", (void*)heap1);
+    printf("Address of heap2 (malloc): %p\n", (void*)heap2);
+    printf("Address of heap3 (malloc): %p\n", (void*)heap3);
+    printf("Address of heap4 (malloc): %p\n", (void*)heap4);
+    printf("Address of heap5 (malloc): %p\n", (void*)heap5);
 
     printf("\nStack\n");
     stack(5);
 
-    free(heap_var1);
-    free(heap_var2);
-    free(heap_var3);
-    free(heap_var4);
-    free(heap_var5);
+    free(heap1);
+    free(heap2);
+    free(heap3);
+    free(heap4);
+    free(heap5);
 
     return 0;
 }
